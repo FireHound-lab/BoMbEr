@@ -68,7 +68,7 @@ from selenium.common.exceptions import StaleElementReferenceException
 
 def telega(name, count, msg, cn):
 	try:
-		driver = webdriver.Chrome(ChromeDriverManager().install()) 
+		driver = webdriver.Chrome(ChromeDriverManager().install())
 		driver.get("https://web.telegram.org/k")
 		time.sleep(35)
 		search = driver.find_element(By.XPATH, "//*[@id='column-left']/div/div/div[1]/div[2]/input")
@@ -80,10 +80,13 @@ def telega(name, count, msg, cn):
 		time.sleep(15)
 		msgBox = driver.find_element(By.XPATH,"//*[@id='column-center']/div/div/div[4]/div/div[1]/div[7]/div[1]/div[1]")
 
-		for i in range(count):
+		for _ in range(count):
 			msgBox.send_keys(msg, Keys.RETURN)
 			cn+=1
-			print("\033[34m{}" .format(now.strftime('%Y-%m-%d / %H:%M:%S')) + "\033[37m {}" .format('|') + "\033[32m {}" .format(f'ATTACK') + "\033[37m {}" .format('|') + "\033[36m {}" .format(cn) + "\033[37m {}" .format('|') + "\033[35m {}" .format(name))
+			print("\033[34m{}".format(now.strftime('%Y-%m-%d / %H:%M:%S')) +
+			      "\033[37m {}".format('|') + "\033[32m {}".format('ATTACK') +
+			      "\033[37m {}".format('|') + "\033[36m {}".format(cn) +
+			      "\033[37m {}".format('|') + "\033[35m {}".format(name))
 
 		print("\033[32m {}" .format("Successful!"))
 		print(f"{cn} messages were sent to {name}")

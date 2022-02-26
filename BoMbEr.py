@@ -236,10 +236,10 @@ def main():
 ┃┗━┛┃┗┛┃┃┃┃┃┃┗┛┃┗━━┫┃
 ┗━━━┻━━┻┛┗┛┗┻━━┻━━━┻┛
 		''')
-		
+
 	print("\033[0m" + Fore.CYAN + "================================================")
 	print(Fore.YELLOW + "Created by Eban'ko - https://github.com/ebankoff")
-	print(Fore.YELLOW + f"OS: {platform}")
+	print(f"{Fore.YELLOW}OS: {platform}")
 	print("\033[0m" + Fore.CYAN + "================================================")
 
 	print('''
@@ -264,8 +264,6 @@ def main():
 
 			else:
 				os.system("clear")
-			ex()
-
 		elif ans == '1':
 			if platform == 'win32':
 				os.system("cls")
@@ -339,8 +337,6 @@ def main():
 			except:
 				print(Fore.RED + '\nERROR!')
 
-			ex()
-
 		elif ans == '2':
 			if platform == 'win32':
 				os.system("cls")
@@ -365,7 +361,7 @@ def main():
 			try:
 				prx = input(Fore.YELLOW + Style.BRIGHT + "Proxy? yes/no:\033[36m ").lower()
 				code = input(Fore.YELLOW + Style.BRIGHT + "Target country code: \033[36m+")
-				if code != '380' and code != '44' and code != '7' and code != '1' and code != '375':
+				if code not in ['380', '44', '7', '1', '375']:
 					print('You entered the wrong value, or the country is not supported')
 					ex()
 				number = code + input(Fore.YELLOW + Style.BRIGHT + f"Target number: \033[36m{code}")
@@ -411,8 +407,6 @@ def main():
 			except:
 				print(Fore.RED + '\nERROR!')
 
-			ex()
-
 		elif ans == '3':
 			if platform == 'win32':
 				os.system("cls")
@@ -447,8 +441,6 @@ def main():
 
 			except:
 				print(Fore.RED + '\nERROR!')
-
-			ex()
 
 		elif ans == '4':
 			if platform == 'win32':
@@ -506,8 +498,6 @@ def main():
 			except:
 				print(Fore.RED + '\nERROR!')
 
-			ex()
-
 		elif ans == '5':
 			if platform == 'win32':
 				os.system("cls")
@@ -544,8 +534,6 @@ def main():
 			except:
 				print(Fore.RED + '\nERROR!')
 
-			ex()
-
 		elif ans == '6':
 			if platform == 'win32':
 				os.system("cls")
@@ -577,8 +565,6 @@ def main():
 			except:
 				print(Fore.RED + '\nERROR!')
 
-			ex()
-
 		elif ans == '7':
 			try:
 				print(' ')
@@ -593,8 +579,6 @@ def main():
 			except:
 				print(Fore.RED + '\nERROR!')
 
-			ex()
-
 		elif ans == '8':
 			try:
 				print(' ')
@@ -607,9 +591,7 @@ def main():
 				''')
 
 			except:
-				print(Fore.RED + 'The program cache is already empty')
-
-			ex()
+				print(f'{Fore.RED}The program cache is already empty')
 
 		elif ans == '9':
 
@@ -626,11 +608,9 @@ def main():
 \033[35m▸ \033[36mEthereum: 0x96a0B6E4274771D5f3F8e59564b58C35D74D8Cc1""")
 			print(Fore.YELLOW + "===========================================================\n")
 
-			ex()
-
 		else:
 			print(Fore.RED + '\nERROR!')
-			ex()
+		ex()
 
 	except:
 		print(Fore.RED + '\nERROR!')

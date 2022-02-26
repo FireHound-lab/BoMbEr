@@ -65,8 +65,8 @@ def email(emails, passwords, to, amount, subj, mes, server):
 	elif server == '4':
 		server = smtplib.SMTP('smtp.yandex.ru', 465)
 		server.starttls()
-	
+
 	server.login(emails, passwords)
 
-	for i in range(amount):
+	for _ in range(amount):
 		server.sendmail(emails, to, subj, mes)

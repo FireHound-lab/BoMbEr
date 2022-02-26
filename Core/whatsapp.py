@@ -67,7 +67,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import StaleElementReferenceException
 
 def whatsapp(name, count, msg, cn):
-	driver = webdriver.Chrome(ChromeDriverManager().install()) 
+	driver = webdriver.Chrome(ChromeDriverManager().install())
 	driver.get("https://web.whatsapp.com")
 	time.sleep(15)
 	search = driver.find_element(By.XPATH, "//*[@id='side']/div[1]/div/label/div/div[2]")
@@ -75,11 +75,17 @@ def whatsapp(name, count, msg, cn):
 	time.sleep(15)
 	msgBox = driver.find_element(By.XPATH,"//*[@id='main']/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[2]")
 
-	for i in range(count):
+	for _ in range(count):
 		try:
 			msgBox.send_keys(msg, Keys.RETURN)
 			cn+=1
-			print("\033[34m{}" .format(now.strftime('%Y-%m-%d / %H:%M:%S')) + "\033[37m {}" .format('|') + "\033[32m {}" .format(f'SUCCESS') + "\033[37m {}" .format('|') + "\033[36m {}" .format(cn) + "\033[37m {}" .format('|') + "\033[35m {}" .format(name))
+			print("\033[34m{}".format(now.strftime('%Y-%m-%d / %H:%M:%S')) +
+			      "\033[37m {}".format('|') + "\033[32m {}".format('SUCCESS') +
+			      "\033[37m {}".format('|') + "\033[36m {}".format(cn) +
+			      "\033[37m {}".format('|') + "\033[35m {}".format(name))
 		except:
 			cn+=1
-			print("\033[34m{}" .format(now.strftime('%Y-%m-%d / %H:%M:%S')) + "\033[37m {}" .format('|') + "\033[31m {}" .format(f'FAILED') + "\033[37m {}" .format('|') + "\033[36m {}" .format(cn) + "\033[37m {}" .format('|') + "\033[35m {}" .format(name))
+			print("\033[34m{}".format(now.strftime('%Y-%m-%d / %H:%M:%S')) +
+			      "\033[37m {}".format('|') + "\033[31m {}".format('FAILED') +
+			      "\033[37m {}".format('|') + "\033[36m {}".format(cn) +
+			      "\033[37m {}".format('|') + "\033[35m {}".format(name))
